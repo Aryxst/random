@@ -50,11 +50,11 @@ const handleSubmit = (e) => {
     .then((response) => response.json())
     .then((data) => {
       url.pathname.startsWith("/users")
-        ? (output.innerHTML += Sqrl.render(
+        ? (output.innerHTML = Sqrl.render(
             `{{@include("repos", {data: it.data})/}}`,
             { data }
           ))
-        : (output.innerHTML += Sqrl.render(
+        : (output.innerHTML = Sqrl.render(
             `{{@include("repo", {repo: it.repo})/}}`,
             { repo: data }
           ));
