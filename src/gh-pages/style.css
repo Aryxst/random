@@ -127,7 +127,8 @@ form {
 }
 @media only screen and (min-width: 640px) {
   .repo-description {
-    height: 48px;
+    height: 72px;
+    overflow: hidden;
   }
 }
 .fadeIn {
