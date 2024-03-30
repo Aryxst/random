@@ -125,11 +125,9 @@ form {
     height: 50vh;
   }
 }
-@media only screen and (width: 640px) {
+@media only screen and (min-width: 640px) {
   .repo-description {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    height: 48px;
   }
 }
 .fadeIn {
