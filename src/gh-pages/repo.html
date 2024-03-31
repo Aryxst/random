@@ -2,6 +2,8 @@
   <a
     href="https://github.com/{{it.repo.owner.login}}/{{it.repo.name}}"
     class="repo-name"
+    target="_blank"
+    aria-label="Go to Repo"
     ><span>{{it.repo.name}}</span></a
   >
   <span class="repo-description"
@@ -11,7 +13,11 @@
   <ul class="repo-referrers">
     <li>
       {{@if (it.repo.homepage)}}
-      <a href="{{it.repo.homepage}}">
+      <a
+        href="{{it.repo.homepage}}"
+        target="_blank"
+        aria-label="Go to Repo Homepage"
+      >
         <img
           src="assets/website.svg"
           width="32"

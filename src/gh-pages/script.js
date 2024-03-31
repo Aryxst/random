@@ -54,6 +54,7 @@ const handleSubmit = (e) => {
   fetch(url, requestOptions)
     .then((response) => response.json())
     .then((data) => {
+      if (data.message) throw new Error(data.message);
       url.pathname.startsWith("/users")
         ? (output.innerHTML = Sqrl.render(
             `{{@include("repos", {data: it.data})/}}`,
@@ -66,8 +67,8 @@ const handleSubmit = (e) => {
     })
     .catch(() => {
       output.innerHTML = `<div class="error">
-            <p>Something went wrong! Try checking if the inputs are correct</p>
-          </div>`;
+      <p>Something went wrong!<br>Try checking if the inputs are correct.</p>
+    </div>`;
     })
     .finally(() => reposSection.scrollIntoView({ behavior: "smooth" }));
 };

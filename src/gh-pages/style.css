@@ -7,7 +7,12 @@ body {
   font-family: "Kanit";
   font-size: 1.5em;
   background-image: url("assets/background.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 input[type="text"] {
   all: unset;
@@ -109,6 +114,13 @@ form {
   padding: 1em;
   width: 500px;
   height: fit-content;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25vh;
+  transition: box-shadow 0.2s ease-in-out;
 }
 .go-up {
   display: block;
