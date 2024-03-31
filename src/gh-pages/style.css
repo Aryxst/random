@@ -95,6 +95,7 @@ form {
   border: 2px solid black;
   transition: box-shadow 0.2s ease-in-out;
   margin-top: 1em;
+  max-height: 44px;
 }
 .repo > .repo-referrers > li > a {
   width: 32px;
