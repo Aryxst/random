@@ -2,6 +2,7 @@ const form = document.querySelector("form");
 const formSubmit = form.querySelector("input[type=submit]");
 const reposSection = document.querySelector(".repos-section");
 const output = document.querySelector(".repos");
+let prevUrl;
 
 const firstLoadReposToggle = (function () {
   var executed = false;
@@ -45,7 +46,11 @@ const handleSubmit = (e) => {
       ? `https://api.github.com/repos/${user}/${repo}`
       : `https://api.github.com/users/${user}/repos`
   );
-
+  if (prevUrl && prevUrl.href === url.href) {
+    reposSection.scrollIntoView({ behavior: "smooth" });
+    return;
+  }
+  prevUrl = url;
   fetch(url, requestOptions)
     .then((response) => response.json())
     .then((data) => {
@@ -59,7 +64,6 @@ const handleSubmit = (e) => {
             { repo: data }
           ));
     })
-
     .catch(() => {
       output.innerHTML = `<div class="error">
             <p>Something went wrong! Try checking if the inputs are correct</p>
