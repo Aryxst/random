@@ -58,6 +58,7 @@ form {
 }
 .repos {
   width: 100vw;
+  min-height: 100vh;
   padding: 2em;
   display: flex;
   flex-direction: row;
