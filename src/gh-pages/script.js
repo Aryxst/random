@@ -80,3 +80,20 @@ reposSection.style.display = "none";
 fetchTemplates();
 
 form.onsubmit = handleSubmit;
+
+console.log(form.onsubmit === handleSubmit);
+window.onload = function () {
+  setTimeout(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const user = searchParams.get("user");
+    const repo = searchParams.get("repo");
+    if (user && !repo) {
+      form.user.value = user;
+      formSubmit.click();
+    } else if (user && repo) {
+      form.user.value = user;
+      form.repo.value = repo;
+      formSubmit.click();
+    }
+  }, 500);
+};
