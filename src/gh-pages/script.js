@@ -39,12 +39,12 @@ const fetchTemplates = () => {
 const handleSubmit = (e) => {
   firstLoadReposToggle();
   e.preventDefault();
-  searchParams.set("user", form.user.value);
-  searchParams.set("repo", form.repo.value);
-  window.history.replaceState(null, null, "?" + searchParams.toString());
   const data = new FormData(form);
   const user = data.get("user");
   const repo = data.get("repo");
+  searchParams.set("user", user);
+  searchParams.set("repo", repo);
+  window.history.replaceState(null, null, "?" + searchParams.toString());
   const url = new URL(
     repo
       ? `https://api.github.com/repos/${user}/${repo}`
