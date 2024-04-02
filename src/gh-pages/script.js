@@ -1,3 +1,4 @@
+const searchParams = new URLSearchParams(window.location.search);
 const form = document.querySelector("form");
 const formSubmit = form.querySelector("input[type=submit]");
 const reposSection = document.querySelector(".repos-section");
@@ -38,6 +39,9 @@ const fetchTemplates = () => {
 const handleSubmit = (e) => {
   firstLoadReposToggle();
   e.preventDefault();
+  searchParams.set("user", form.user.value);
+  searchParams.set("repo", form.repo.value);
+  window.history.replaceState(null, null, "?" + searchParams.toString());
   const data = new FormData(form);
   const user = data.get("user");
   const repo = data.get("repo");
@@ -84,7 +88,6 @@ form.onsubmit = handleSubmit;
 console.log(form.onsubmit === handleSubmit);
 window.onload = function () {
   setTimeout(() => {
-    const searchParams = new URLSearchParams(window.location.search);
     const user = searchParams.get("user");
     const repo = searchParams.get("repo");
     if (user && !repo) {
