@@ -1,2 +1,5 @@
-{{@each(it.data) => repo}} {{@if (!repo.fork)}} {{! /* Load partial for each
-repo, excluding forks*/}} {{@include("repo", {repo: repo})/}} {{/if}} {{/each}}
+{{@if (it.data.length)}} {{@each(it.data) => repo}} {{@if (!repo.fork)}} {{! /*
+Load partial for each repo, excluding forks*/}} {{@include("repo", {repo:
+repo})/}} {{/if}} {{/each}} {{#else}}
+<div class="no-repos"><p>No repositories found.</p></div>
+{{/if}}

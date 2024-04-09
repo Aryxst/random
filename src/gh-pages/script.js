@@ -70,9 +70,7 @@ const handleSubmit = (e) => {
           ));
     })
     .catch(() => {
-      output.innerHTML = `<div class="error">
-      <p>Something went wrong!<br>Try checking if the inputs are correct.</p>
-    </div>`;
+      output.innerHTML = `<div class="error"><p>Something went wrong!<br>Try checking if the inputs are correct.</p></div>`;
     })
     .finally(() => reposSection.scrollIntoView({ behavior: "smooth" }));
 };
@@ -85,7 +83,6 @@ fetchTemplates();
 
 form.onsubmit = handleSubmit;
 
-console.log(form.onsubmit === handleSubmit);
 window.onload = function () {
   setTimeout(() => {
     const user = searchParams.get("user");
